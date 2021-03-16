@@ -1,0 +1,269 @@
+$ make
+docker-compose down
+sudo gzip -d */juniper.conf.gz || true
+gzip: */juniper.conf.gz: No such file or directory
+sudo chown -R mwiget */juniper.conf
+sudo modprobe ip_tunnel
+sudo modprobe mpls_gso
+sudo modprobe mpls_router
+sudo modprobe mpls_iptunnel
+docker-compose up -d
+Creating ce2 ... 
+Creating pe1 ... 
+Creating ce3 ... 
+Creating pe2 ... 
+Creating links ... 
+Creating ce6 ... 
+Creating pe3   ... 
+Creating p1    ... 
+Creating ce1   ... 
+Creating ce4   ... 
+Creating ce5   ... 
+[11A[2KCreating ce2   ... [32mdone[0m[11B[9A[2KCreating ce3   ... [32mdone[0m[9B[7A[2KCreating ce6   ... [32mdone[0m[7B[6A[2KCreating links ... [32mdone[0m[6B[10A[2KCreating pe1   ... [32mdone[0m[10B[4A[2KCreating p1    ... [32mdone[0m[4B[2A[2KCreating ce5   ... [32mdone[0m[2B[3A[2KCreating ce1   ... [32mdone[0m[3B[8A[2KCreating pe2   ... [32mdone[0m[8B[1A[2KCreating ce4   ... [32mdone[0m[1B[5A[2KCreating pe3   ... [32mdone[0m[5B./validate.sh
+5: waiting for all ospf neighbors in state Full ...
+10: waiting for all ospf neighbors in state Full ...
+16: waiting for all ospf neighbors in state Full ...
+21: waiting for all ospf neighbors in state Full ...
+26: waiting for all ospf neighbors in state Full ...
+31: waiting for all ospf neighbors in state Full ...
+36: waiting for all ospf neighbors in state Full ...
+41: waiting for all ospf neighbors in state Full ...
+46: waiting for all ospf neighbors in state Full ...
+52: waiting for all ospf neighbors in state Full ...
+Address          Interface              State           ID               Pri  Dead
+81.1.5.1         eth0                   Full            81.1.1.1         128    33
+81.2.5.2         eth1                   Full            81.2.2.2         128    33
+81.3.5.3         eth2                   Full            81.3.3.3         128    33
+testing IPv4 ce - ce connectivity via vxlan ...
+
+PING 99.60.0.2 (99.60.0.2) 56(84) bytes of data.
+64 bytes from 99.60.0.2: icmp_seq=1 ttl=64 time=2053 ms
+64 bytes from 99.60.0.2: icmp_seq=2 ttl=64 time=1024 ms
+64 bytes from 99.60.0.2: icmp_seq=3 ttl=64 time=0.306 ms
+
+--- 99.60.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2052ms
+rtt min/avg/max/mdev = 0.306/1025.714/2052.605/837.848 ms, pipe 3
+PING 99.60.0.3 (99.60.0.3) 56(84) bytes of data.
+From 99.60.0.1 icmp_seq=1 Destination Host Unreachable
+From 99.60.0.1 icmp_seq=2 Destination Host Unreachable
+From 99.60.0.1 icmp_seq=3 Destination Host Unreachable
+
+--- 99.60.0.3 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2049ms
+pipe 3
+62: waiting to reach 99.60.0.3 ...
+PING 99.60.0.3 (99.60.0.3) 56(84) bytes of data.
+From 99.60.0.1 icmp_seq=1 Destination Host Unreachable
+From 99.60.0.1 icmp_seq=2 Destination Host Unreachable
+From 99.60.0.1 icmp_seq=3 Destination Host Unreachable
+
+--- 99.60.0.3 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2040ms
+pipe 3
+66: waiting to reach 99.60.0.3 ...
+PING 99.60.0.3 (99.60.0.3) 56(84) bytes of data.
+64 bytes from 99.60.0.3: icmp_seq=1 ttl=64 time=0.163 ms
+64 bytes from 99.60.0.3: icmp_seq=2 ttl=64 time=0.222 ms
+64 bytes from 99.60.0.3: icmp_seq=3 ttl=64 time=0.188 ms
+
+--- 99.60.0.3 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2044ms
+rtt min/avg/max/mdev = 0.163/0.191/0.222/0.024 ms
+PING 99.60.1.1 (99.60.1.1) 56(84) bytes of data.
+64 bytes from 99.60.1.1: icmp_seq=1 ttl=63 time=0.131 ms
+64 bytes from 99.60.1.1: icmp_seq=2 ttl=63 time=0.110 ms
+64 bytes from 99.60.1.1: icmp_seq=3 ttl=63 time=0.102 ms
+
+--- 99.60.1.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2037ms
+rtt min/avg/max/mdev = 0.102/0.114/0.131/0.012 ms
+PING 99.60.1.2 (99.60.1.2) 56(84) bytes of data.
+64 bytes from 99.60.1.2: icmp_seq=1 ttl=63 time=0.153 ms
+64 bytes from 99.60.1.2: icmp_seq=2 ttl=63 time=0.201 ms
+64 bytes from 99.60.1.2: icmp_seq=3 ttl=63 time=0.206 ms
+
+--- 99.60.1.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2028ms
+rtt min/avg/max/mdev = 0.153/0.186/0.206/0.023 ms
+PING 99.60.1.3 (99.60.1.3) 56(84) bytes of data.
+64 bytes from 99.60.1.3: icmp_seq=1 ttl=63 time=0.171 ms
+64 bytes from 99.60.1.3: icmp_seq=2 ttl=63 time=0.216 ms
+64 bytes from 99.60.1.3: icmp_seq=3 ttl=63 time=0.232 ms
+
+--- 99.60.1.3 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2044ms
+rtt min/avg/max/mdev = 0.171/0.206/0.232/0.025 ms
+testing IPv6 ce - ce connectivity via vxlan ...
+
+PING 1234::99.60.0.2(1234::633c:2) 56 data bytes
+64 bytes from 1234::633c:2: icmp_seq=1 ttl=64 time=0.179 ms
+64 bytes from 1234::633c:2: icmp_seq=2 ttl=64 time=0.227 ms
+64 bytes from 1234::633c:2: icmp_seq=3 ttl=64 time=0.208 ms
+
+--- 1234::99.60.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2029ms
+rtt min/avg/max/mdev = 0.179/0.204/0.227/0.019 ms
+PING 1234::99.60.0.3(1234::633c:3) 56 data bytes
+64 bytes from 1234::633c:3: icmp_seq=1 ttl=64 time=0.179 ms
+64 bytes from 1234::633c:3: icmp_seq=2 ttl=64 time=0.200 ms
+64 bytes from 1234::633c:3: icmp_seq=3 ttl=64 time=0.239 ms
+
+--- 1234::99.60.0.3 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2048ms
+rtt min/avg/max/mdev = 0.179/0.206/0.239/0.024 ms
+PING 1234::99.60.1.1(1234::633c:101) 56 data bytes
+64 bytes from 1234::633c:101: icmp_seq=1 ttl=63 time=0.174 ms
+64 bytes from 1234::633c:101: icmp_seq=2 ttl=63 time=0.320 ms
+64 bytes from 1234::633c:101: icmp_seq=3 ttl=63 time=0.302 ms
+
+--- 1234::99.60.1.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2041ms
+rtt min/avg/max/mdev = 0.174/0.265/0.320/0.065 ms
+PING 1234::99.60.1.2(1234::633c:102) 56 data bytes
+64 bytes from 1234::633c:102: icmp_seq=1 ttl=63 time=0.195 ms
+64 bytes from 1234::633c:102: icmp_seq=2 ttl=63 time=0.200 ms
+64 bytes from 1234::633c:102: icmp_seq=3 ttl=63 time=0.232 ms
+
+--- 1234::99.60.1.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2044ms
+rtt min/avg/max/mdev = 0.195/0.209/0.232/0.016 ms
+PING 1234::99.60.1.3(1234::633c:103) 56 data bytes
+64 bytes from 1234::633c:103: icmp_seq=1 ttl=63 time=0.225 ms
+64 bytes from 1234::633c:103: icmp_seq=2 ttl=63 time=0.276 ms
+64 bytes from 1234::633c:103: icmp_seq=3 ttl=63 time=0.270 ms
+
+--- 1234::99.60.1.3 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2048ms
+rtt min/avg/max/mdev = 0.225/0.257/0.276/0.022 ms
+
+pe1: cli show evpn instance extensive
+Instance: __default_evpn__
+  Route Distinguisher: 81.1.1.1:0
+  Number of bridge domains: 0
+  Number of neighbors: 0
+
+Instance: evpn-vxlan
+  Route Distinguisher: 81.1.1.1:1
+  Encapsulation type: VXLAN
+  Control word enabled
+  Duplicate MAC detection threshold: 5
+  Duplicate MAC detection window: 180
+  MAC database status                     Local  Remote
+    MAC advertisements:                       0       0
+    MAC+IP advertisements:                    0       0
+    Default gateway MAC advertisements:       0       0
+  Number of local interfaces: 3 (1 up)
+    Interface name  ESI                            Mode             Status     AC-Role
+    .local..2       00:00:00:00:00:00:00:00:00:00  single-homed     Up         Root 
+    eth1.600        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+    eth2.601        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+  Number of IRB interfaces: 2 (2 up)
+    Interface name  VLAN   VNI    Status  L3 context
+    irb.600                2600    Up     evpn-vrf                         
+    irb.601                2601    Up     evpn-vrf                         
+  Number of protect interfaces: 0
+  Number of bridge domains: 2
+    VLAN  Domain-ID Intfs/up   IRB-intf  Mode            MAC-sync IM-label  MAC-label  v4-SG-sync IM-core-NH v6-SG-sync IM-core-NH Trans-ID
+    600   2600         1  0    irb.600   Extended        Enabled  2600                Disabled              Disabled              2600        
+    601   2601         1  0    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
+  Number of neighbors: 2
+    Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
+    81.2.2.2                0         0         0         2         0
+    81.3.3.3                0         0         0         2         0
+  Number of ethernet segments: 2
+    ESI: 05:00:00:00:7b:00:00:0a:28:00
+      Local interface: irb.600, Status: Up/Forwarding
+    ESI: 05:00:00:00:7b:00:00:0a:29:00
+      Local interface: irb.601, Status: Up/Forwarding
+  Router-ID: 81.1.1.1
+  Source VTEP interface IP: 81.1.1.1
+  SMET Forwarding: Disabled
+
+pe2: cli show evpn instance extensive
+Instance: __default_evpn__
+  Route Distinguisher: 81.2.2.2:0
+  Number of bridge domains: 0
+  Number of neighbors: 0
+
+Instance: evpn-vxlan
+  Route Distinguisher: 81.2.2.2:1
+  Encapsulation type: VXLAN
+  Control word enabled
+  Duplicate MAC detection threshold: 5
+  Duplicate MAC detection window: 180
+  MAC database status                     Local  Remote
+    MAC advertisements:                       0       0
+    MAC+IP advertisements:                    0       0
+    Default gateway MAC advertisements:       0       0
+  Number of local interfaces: 3 (1 up)
+    Interface name  ESI                            Mode             Status     AC-Role
+    .local..2       00:00:00:00:00:00:00:00:00:00  single-homed     Up         Root 
+    eth1.600        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+    eth2.601        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+  Number of IRB interfaces: 2 (2 up)
+    Interface name  VLAN   VNI    Status  L3 context
+    irb.600                2600    Up     evpn-vrf                         
+    irb.601                2601    Up     evpn-vrf                         
+  Number of protect interfaces: 0
+  Number of bridge domains: 2
+    VLAN  Domain-ID Intfs/up   IRB-intf  Mode            MAC-sync IM-label  MAC-label  v4-SG-sync IM-core-NH v6-SG-sync IM-core-NH Trans-ID
+    600   2600         1  0    irb.600   Extended        Enabled  2600                Disabled              Disabled              2600        
+    601   2601         1  0    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
+  Number of neighbors: 2
+    Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
+    81.1.1.1                0         0         0         2         0
+    81.3.3.3                0         0         0         2         0
+  Number of ethernet segments: 2
+    ESI: 05:00:00:00:7b:00:00:0a:28:00
+      Local interface: irb.600, Status: Up/Forwarding
+    ESI: 05:00:00:00:7b:00:00:0a:29:00
+      Local interface: irb.601, Status: Up/Forwarding
+  Router-ID: 81.2.2.2
+  Source VTEP interface IP: 81.2.2.2
+  SMET Forwarding: Disabled
+
+pe3: cli show evpn instance extensive
+Instance: __default_evpn__
+  Route Distinguisher: 81.3.3.3:0
+  Number of bridge domains: 0
+  Number of neighbors: 0
+
+Instance: evpn-vxlan
+  Route Distinguisher: 81.3.3.3:1
+  Encapsulation type: VXLAN
+  Control word enabled
+  Duplicate MAC detection threshold: 5
+  Duplicate MAC detection window: 180
+  MAC database status                     Local  Remote
+    MAC advertisements:                       0       0
+    MAC+IP advertisements:                    0       0
+    Default gateway MAC advertisements:       0       0
+  Number of local interfaces: 3 (1 up)
+    Interface name  ESI                            Mode             Status     AC-Role
+    .local..2       00:00:00:00:00:00:00:00:00:00  single-homed     Up         Root 
+    eth1.600        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+    eth2.601        00:00:00:00:00:00:00:00:00:00  single-homed     Down       Root 
+  Number of IRB interfaces: 2 (2 up)
+    Interface name  VLAN   VNI    Status  L3 context
+    irb.600                2600    Up     evpn-vrf                         
+    irb.601                2601    Up     evpn-vrf                         
+  Number of protect interfaces: 0
+  Number of bridge domains: 2
+    VLAN  Domain-ID Intfs/up   IRB-intf  Mode            MAC-sync IM-label  MAC-label  v4-SG-sync IM-core-NH v6-SG-sync IM-core-NH Trans-ID
+    600   2600         1  0    irb.600   Extended        Enabled  2600                Disabled              Disabled              2600        
+    601   2601         1  0    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
+  Number of neighbors: 2
+    Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
+    81.1.1.1                0         0         0         2         0
+    81.2.2.2                0         0         0         2         0
+  Number of ethernet segments: 2
+    ESI: 05:00:00:00:7b:00:00:0a:28:00
+      Local interface: irb.600, Status: Up/Forwarding
+    ESI: 05:00:00:00:7b:00:00:0a:29:00
+      Local interface: irb.601, Status: Up/Forwarding
+  Router-ID: 81.3.3.3
+  Source VTEP interface IP: 81.3.3.3
+  SMET Forwarding: Disabled
+
+success in 87 seconds
