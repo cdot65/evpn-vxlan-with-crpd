@@ -15,3 +15,40 @@ pe3---ce5["ce5 99.60.1.2"]
 pe3---ce6["ce6 99.60.1.3"]
 ```
 
+## Deploy
+
+You need to add crpd license keys to all instances to get the BGP sessions up.
+
+Then build and deploy the topology via make:
+
+```
+$ make
+```
+
+See [example-run.txt](example-run.txt) for an example run, including running validate.sh.
+
+To show the running containers, use
+
+```
+$ docker-compose ps
+
+Name               Command               State    Ports
+-------------------------------------------------------
+ce1     /bin/bash /config/network- ...   Up            
+ce2     /bin/bash /config/network- ...   Up            
+ce3     /bin/bash /config/network- ...   Up            
+ce4     /bin/bash /config/network- ...   Up            
+ce5     /bin/bash /config/network- ...   Up            
+ce6     /bin/bash /config/network- ...   Up            
+links   /usr/bin/python3 /add_link ...   Exit 0        
+p1      /sbin/runit-init.sh              Up            
+pe1     /sbin/runit-init.sh              Up            
+pe2     /sbin/runit-init.sh              Up            
+pe3     /sbin/runit-init.sh              Up            
+```
+
+To bring all containers down, use 
+
+```
+$ make down
+```
