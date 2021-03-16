@@ -38,4 +38,8 @@ for pe in pe1 pe2 pe3; do
 done
 
 echo ""
+echo p1: cli show bgp summary
+docker exec -ti p1 cli show bgp summary
+
+echo ""
 echo "success in $SECONDS seconds"
