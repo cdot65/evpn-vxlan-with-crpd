@@ -1,0 +1,17 @@
+junos_sfnt.lic
+license
+juniper.conf.*
+*.pcap
+*.o
+*.ko
+xdp_loader
+xdp_stats
+xdp_tunnels
+xdp_vxlan_fdb
+dpdk
+archive
+sync.sh
+daemons
+frr.backup
+rpd-helper
+.env

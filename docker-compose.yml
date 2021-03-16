@@ -1,0 +1,140 @@
+version: "2.4"
+
+services:
+
+  p1:
+    build: crpd
+    container_name: p1
+    hostname: p1
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    volumes:
+      - ${PWD}/p1:/config
+
+  pe1:
+    build: crpd
+    container_name: pe1
+    hostname: pe1
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    volumes:
+      - ${PWD}/pe1:/config
+
+  pe2:
+    build: crpd
+    container_name: pe2
+    hostname: pe2
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    volumes:
+      - ${PWD}/pe2:/config
+
+  pe3:
+    build: crpd
+    container_name: pe3
+    hostname: pe3
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    volumes:
+      - ${PWD}/pe3:/config
+
+  ce1:
+    build: ce
+    container_name: ce1
+    hostname: ce1
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce1:/config
+
+  ce2:
+    build: ce
+    container_name: ce2
+    hostname: ce2
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce2:/config
+
+  ce3:
+    build: ce
+    container_name: ce3
+    hostname: ce3
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce3:/config
+
+  ce4:
+    build: ce
+    container_name: ce4
+    hostname: ce4
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce4:/config
+
+  ce5:
+    build: ce
+    container_name: ce5
+    hostname: ce5
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce5:/config
+
+  ce6:
+    build: ce
+    container_name: ce6
+    hostname: ce6
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv6.conf.all.forwarding=1
+    privileged: true
+    network_mode: none
+    command: /bin/bash /config/network-init.sh
+    volumes:
+      - ${PWD}/ce6:/config
+
+  links:
+    image: marcelwiget/link-containers
+    container_name: links
+    privileged: true
+    network_mode: none
+    pid: "host"
+    restart: "no"
+    command: "p1/pe1 p1/pe2 p1/pe3 pe1/ce1 pe1/ce4 pe2/ce2 pe2/ce5 pe3/ce3 pe3/ce6"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
