@@ -19,3 +19,11 @@ ip link add link eth1 name eth1.600 type vlan id 600
 ip link set eth1.600 up
 ip link add link eth2 name eth2.601 type vlan id 601
 ip link set eth2.601 up
+
+echo 0 > /proc/sys/net/mpls/conf/eth1.600/input
+echo 0 > /proc/sys/net/ipv4/conf/eth1.600/forwarding
+echo 0 > /proc/sys/net/ipv6/conf/eth1.600/forwarding
+
+echo 0 > /proc/sys/net/mpls/conf/eth2.601/input
+echo 0 > /proc/sys/net/ipv4/conf/eth2.601/forwarding
+echo 0 > /proc/sys/net/ipv6/conf/eth2.601/forwarding

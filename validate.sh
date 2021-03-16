@@ -42,4 +42,8 @@ echo p1: cli show bgp summary
 docker exec -ti p1 cli show bgp summary
 
 echo ""
+echo p1: cli show route
+docker exec -ti p1 cli show route
+
+echo ""
 echo "success in $SECONDS seconds"
