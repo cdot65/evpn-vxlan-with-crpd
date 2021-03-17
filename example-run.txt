@@ -1,142 +1,61 @@
-Script started on 2021-03-16 22:46:55+01:00 [TERM="screen" TTY="/dev/pts/0" COLUMNS="246" LINES="77"]
-mwiget@nuc:~/git/crpd-evpn-vxlan$ make
-docker-compose down
-sudo gzip -d */juniper.conf.gz || true
-gzip: */juniper.conf.gz: No such file or directory
-sudo chown -R mwiget */juniper.conf
-sudo modprobe ip_tunnel
-sudo modprobe mpls_gso
-sudo modprobe mpls_router
-sudo modprobe mpls_iptunnel
-docker-compose up -d
-Creating pe2 ... 
-Creating pe3 ... 
-Creating ce1 ... 
-Creating ce5 ... 
-Creating ce4 ... 
-Creating p1  ... 
-Creating ce2 ... 
-Creating pe1 ... 
-Creating ce3 ... 
-Creating links ... 
-Creating ce6   ... 
-[7A[2KCreating ce4   ... [32mdone[0m[7B[9A[2KCreating ce1   ... [32mdone[0m[9B[6A[2KCreating p1    ... [32mdone[0m[6B[4A[2KCreating pe1   ... [32mdone[0m[4B[1A[2KCreating ce6   ... [32mdone[0m[1B[8A[2KCreating ce5   ... [32mdone[0m[8B[5A[2KCreating ce2   ... [32mdone[0m[5B[10A[2KCreating pe3   ... [32mdone[0m[10B[11A[2KCreating pe2   ... [32mdone[0m[11B[3A[2KCreating ce3   ... [32mdone[0m[3B[2A[2KCreating links ... [32mdone[0m[2B./validate.sh
-5: waiting for all ospf neighbors in state Full ...
-10: waiting for all ospf neighbors in state Full ...
-15: waiting for all ospf neighbors in state Full ...
-20: waiting for all ospf neighbors in state Full ...
-25: waiting for all ospf neighbors in state Full ...
-30: waiting for all ospf neighbors in state Full ...
-35: waiting for all ospf neighbors in state Full ...
-41: waiting for all ospf neighbors in state Full ...
-46: waiting for all ospf neighbors in state Full ...
-51: waiting for all ospf neighbors in state Full ...
 Address          Interface              State           ID               Pri  Dead
-81.1.5.1         eth0                   Full            81.1.1.1         128    34
-81.2.5.2         eth1                   Full            81.2.2.2         128    34
-81.3.5.3         eth2                   Full            81.3.3.3         128    34
+81.1.5.1         eth0                   Full            81.1.1.1         128    31
+81.2.5.2         eth1                   Full            81.2.2.2         128    37
+81.3.5.3         eth2                   Full            81.3.3.3         128    36
 testing IPv4 ce - ce connectivity via vxlan ...
 
 PING 99.60.0.2 (99.60.0.2) 56(84) bytes of data.
-From 99.60.0.1 icmp_seq=1 Destination Host Unreachable
-From 99.60.0.1 icmp_seq=2 Destination Host Unreachable
-From 99.60.0.1 icmp_seq=3 Destination Host Unreachable
-
+. . . 
 --- 99.60.0.2 ping statistics ---
-3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2036ms
-pipe 3
-59: waiting to reach 99.60.0.2 ...
-PING 99.60.0.2 (99.60.0.2) 56(84) bytes of data.
-From 99.60.0.1 icmp_seq=1 Destination Host Unreachable
-From 99.60.0.1 icmp_seq=2 Destination Host Unreachable
-From 99.60.0.1 icmp_seq=3 Destination Host Unreachable
-
---- 99.60.0.2 ping statistics ---
-3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2041ms
-pipe 3
-63: waiting to reach 99.60.0.2 ...
-PING 99.60.0.2 (99.60.0.2) 56(84) bytes of data.
-64 bytes from 99.60.0.2: icmp_seq=1 ttl=64 time=2041 ms
-64 bytes from 99.60.0.2: icmp_seq=2 ttl=64 time=1024 ms
-64 bytes from 99.60.0.2: icmp_seq=3 ttl=64 time=0.346 ms
-
---- 99.60.0.2 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2040ms
-rtt min/avg/max/mdev = 0.346/1021.785/2040.744/832.990 ms, pipe 3
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.010/0.032/0.074/0.029 ms, ipg/ewma 0.054/0.059 ms
 PING 99.60.0.3 (99.60.0.3) 56(84) bytes of data.
-64 bytes from 99.60.0.3: icmp_seq=1 ttl=64 time=0.153 ms
-64 bytes from 99.60.0.3: icmp_seq=2 ttl=64 time=0.150 ms
-64 bytes from 99.60.0.3: icmp_seq=3 ttl=64 time=0.132 ms
-
+. . . 
 --- 99.60.0.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2056ms
-rtt min/avg/max/mdev = 0.132/0.145/0.153/0.009 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.013/0.037/0.081/0.030 ms, ipg/ewma 0.062/0.065 ms
 PING 99.60.1.1 (99.60.1.1) 56(84) bytes of data.
-64 bytes from 99.60.1.1: icmp_seq=1 ttl=63 time=0.116 ms
-64 bytes from 99.60.1.1: icmp_seq=2 ttl=63 time=0.094 ms
-64 bytes from 99.60.1.1: icmp_seq=3 ttl=63 time=0.099 ms
-
+. . . 
 --- 99.60.1.1 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2041ms
-rtt min/avg/max/mdev = 0.094/0.103/0.116/0.009 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.007/0.024/0.058/0.023 ms, ipg/ewma 0.046/0.046 ms
 PING 99.60.1.2 (99.60.1.2) 56(84) bytes of data.
-64 bytes from 99.60.1.2: icmp_seq=1 ttl=63 time=0.187 ms
-64 bytes from 99.60.1.2: icmp_seq=2 ttl=63 time=0.184 ms
-64 bytes from 99.60.1.2: icmp_seq=3 ttl=63 time=0.083 ms
-
+. . . 
 --- 99.60.1.2 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2056ms
-rtt min/avg/max/mdev = 0.083/0.151/0.187/0.048 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.019/0.051/0.116/0.045 ms, ipg/ewma 0.079/0.093 ms
 PING 99.60.1.3 (99.60.1.3) 56(84) bytes of data.
-64 bytes from 99.60.1.3: icmp_seq=1 ttl=63 time=0.155 ms
-64 bytes from 99.60.1.3: icmp_seq=2 ttl=63 time=0.187 ms
-64 bytes from 99.60.1.3: icmp_seq=3 ttl=63 time=0.182 ms
-
+. . . 
 --- 99.60.1.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2029ms
-rtt min/avg/max/mdev = 0.155/0.174/0.187/0.014 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.018/0.042/0.089/0.033 ms, ipg/ewma 0.063/0.072 ms
 testing IPv6 ce - ce connectivity via vxlan ...
 
 PING 1234::99.60.0.2(1234::633c:2) 56 data bytes
-64 bytes from 1234::633c:2: icmp_seq=1 ttl=64 time=0.147 ms
-64 bytes from 1234::633c:2: icmp_seq=2 ttl=64 time=0.167 ms
-64 bytes from 1234::633c:2: icmp_seq=3 ttl=64 time=0.153 ms
-
+. . . 
 --- 1234::99.60.0.2 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2048ms
-rtt min/avg/max/mdev = 0.147/0.155/0.167/0.008 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.019/0.040/0.079/0.027 ms, ipg/ewma 0.062/0.065 ms
 PING 1234::99.60.0.3(1234::633c:3) 56 data bytes
-64 bytes from 1234::633c:3: icmp_seq=1 ttl=64 time=0.146 ms
-64 bytes from 1234::633c:3: icmp_seq=2 ttl=64 time=0.151 ms
-64 bytes from 1234::633c:3: icmp_seq=3 ttl=64 time=0.143 ms
-
+. . . 
 --- 1234::99.60.0.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2029ms
-rtt min/avg/max/mdev = 0.143/0.146/0.151/0.003 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.012/0.032/0.072/0.028 ms, ipg/ewma 0.051/0.058 ms
 PING 1234::99.60.1.1(1234::633c:101) 56 data bytes
-64 bytes from 1234::633c:101: icmp_seq=1 ttl=63 time=0.176 ms
-64 bytes from 1234::633c:101: icmp_seq=2 ttl=63 time=0.274 ms
-64 bytes from 1234::633c:101: icmp_seq=3 ttl=63 time=0.289 ms
-
+. . . 
 --- 1234::99.60.1.1 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2044ms
-rtt min/avg/max/mdev = 0.176/0.246/0.289/0.050 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.044/0.085/0.162/0.054 ms, ipg/ewma 0.118/0.135 ms
 PING 1234::99.60.1.2(1234::633c:102) 56 data bytes
-64 bytes from 1234::633c:102: icmp_seq=1 ttl=63 time=0.252 ms
-64 bytes from 1234::633c:102: icmp_seq=2 ttl=63 time=0.250 ms
-64 bytes from 1234::633c:102: icmp_seq=3 ttl=63 time=0.287 ms
-
+. . . 
 --- 1234::99.60.1.2 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2036ms
-rtt min/avg/max/mdev = 0.250/0.263/0.287/0.017 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.033/0.075/0.147/0.050 ms, ipg/ewma 0.110/0.121 ms
 PING 1234::99.60.1.3(1234::633c:103) 56 data bytes
-64 bytes from 1234::633c:103: icmp_seq=1 ttl=63 time=0.201 ms
-64 bytes from 1234::633c:103: icmp_seq=2 ttl=63 time=0.328 ms
-64 bytes from 1234::633c:103: icmp_seq=3 ttl=63 time=0.085 ms
-
+. . . 
 --- 1234::99.60.1.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2044ms
-rtt min/avg/max/mdev = 0.085/0.204/0.328/0.099 ms
+3 packets transmitted, 3 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.023/0.056/0.113/0.040 ms, ipg/ewma 0.080/0.093 ms
 
 pe1: cli show evpn instance extensive
 Instance: __default_evpn__
@@ -152,7 +71,7 @@ Instance: evpn-vxlan
   Duplicate MAC detection window: 180
   MAC database status                     Local  Remote
     MAC advertisements:                       2       4
-    MAC+IP advertisements:                    5       2
+    MAC+IP advertisements:                    6       4
     Default gateway MAC advertisements:       0       0
   Number of local interfaces: 3 (3 up)
     Interface name  ESI                            Mode             Status     AC-Role
@@ -170,8 +89,8 @@ Instance: evpn-vxlan
     601   2601         1  1    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
   Number of neighbors: 2
     Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
-    81.2.2.2                2         1         0         2         0
-    81.3.3.3                2         1         0         2         0
+    81.2.2.2                2         2         0         2         0
+    81.3.3.3                2         2         0         2         0
   Number of ethernet segments: 2
     ESI: 05:00:00:00:7b:00:00:0a:28:00
       Local interface: irb.600, Status: Up/Forwarding
@@ -195,7 +114,7 @@ Instance: evpn-vxlan
   Duplicate MAC detection window: 180
   MAC database status                     Local  Remote
     MAC advertisements:                       2       4
-    MAC+IP advertisements:                    1       6
+    MAC+IP advertisements:                    2       8
     Default gateway MAC advertisements:       0       0
   Number of local interfaces: 3 (3 up)
     Interface name  ESI                            Mode             Status     AC-Role
@@ -213,8 +132,8 @@ Instance: evpn-vxlan
     601   2601         1  1    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
   Number of neighbors: 2
     Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
-    81.1.1.1                2         5         0         2         0
-    81.3.3.3                2         1         0         2         0
+    81.1.1.1                2         6         0         2         0
+    81.3.3.3                2         2         0         2         0
   Number of ethernet segments: 2
     ESI: 05:00:00:00:7b:00:00:0a:28:00
       Local interface: irb.600, Status: Up/Forwarding
@@ -238,7 +157,7 @@ Instance: evpn-vxlan
   Duplicate MAC detection window: 180
   MAC database status                     Local  Remote
     MAC advertisements:                       2       4
-    MAC+IP advertisements:                    1       6
+    MAC+IP advertisements:                    2       8
     Default gateway MAC advertisements:       0       0
   Number of local interfaces: 3 (3 up)
     Interface name  ESI                            Mode             Status     AC-Role
@@ -256,8 +175,8 @@ Instance: evpn-vxlan
     601   2601         1  1    irb.601   Extended        Enabled  2601                Disabled              Disabled              2601        
   Number of neighbors: 2
     Address               MAC    MAC+IP        AD        IM        ES Leaf-label Remote-DCI-Peer
-    81.1.1.1                2         5         0         2         0
-    81.2.2.2                2         1         0         2         0
+    81.1.1.1                2         6         0         2         0
+    81.2.2.2                2         2         0         2         0
   Number of ethernet segments: 2
     ESI: 05:00:00:00:7b:00:00:0a:28:00
       Local interface: irb.600, Status: Up/Forwarding
@@ -279,255 +198,283 @@ inet6.0
 bgp.l3vpn.0          
                        8          8          0          0          0          0
 bgp.l3vpn-inet6.0    
-                      11          0          0          0          0          0
+                      14          0          0          0          0          0
 bgp.evpn.0           
-                      19         19          0          0          0          0
+                      22         22          0          0          0          0
 Peer                     AS      InPkt     OutPkt    OutQ   Flaps Last Up/Dwn State|#Active/Received/Accepted/Damped...
-81.1.1.1                123         19         17       0       0          30 Establ
+81.1.1.1                123       1765       1740       0       0    12:53:12 Establ
   inet.0: 0/0/0/0
   inet6.0: 0/0/0/0
   bgp.l3vpn.0: 4/4/4/0
-  bgp.l3vpn-inet6.0: 0/5/5/0
-  bgp.evpn.0: 9/9/9/0
-81.2.2.2                123         14         19       0       0          22 Establ
+  bgp.l3vpn-inet6.0: 0/6/6/0
+  bgp.evpn.0: 10/10/10/0
+81.2.2.2                123       1748       1752       0       0    12:53:04 Establ
   inet.0: 0/0/0/0
   inet6.0: 0/0/0/0
   bgp.l3vpn.0: 2/2/2/0
-  bgp.l3vpn-inet6.0: 0/3/3/0
-  bgp.evpn.0: 5/5/5/0
-81.3.3.3                123         14         20       0       0          30 Establ
+  bgp.l3vpn-inet6.0: 0/4/4/0
+  bgp.evpn.0: 6/6/6/0
+81.3.3.3                123       1748       1752       0       0    12:53:12 Establ
   inet.0: 0/0/0/0
   inet6.0: 0/0/0/0
   bgp.l3vpn.0: 2/2/2/0
-  bgp.l3vpn-inet6.0: 0/3/3/0
-  bgp.evpn.0: 5/5/5/0
+  bgp.l3vpn-inet6.0: 0/4/4/0
+  bgp.evpn.0: 6/6/6/0
 
 p1: cli show route
 
 inet.0: 12 destinations, 12 routes (12 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
-81.1.1.1/32        *[OSPF/10] 00:00:36, metric 1
+81.1.1.1/32        *[OSPF/10] 12:53:18, metric 1
                     >  to 81.1.5.1 via eth0
-81.1.5.0/24        *[Direct/0] 00:01:26
+81.1.5.0/24        *[Direct/0] 12:54:08
                     >  via eth0
-81.1.5.5/32        *[Local/0] 00:01:26
+81.1.5.5/32        *[Local/0] 12:54:08
                        Local via eth0
-81.2.2.2/32        *[OSPF/10] 00:00:26, metric 1
+81.2.2.2/32        *[OSPF/10] 12:53:08, metric 1
                     >  to 81.2.5.2 via eth1
-81.2.5.0/24        *[Direct/0] 00:01:26
+81.2.5.0/24        *[Direct/0] 12:54:08
                     >  via eth1
-81.2.5.5/32        *[Local/0] 00:01:26
+81.2.5.5/32        *[Local/0] 12:54:08
                        Local via eth1
-81.3.3.3/32        *[OSPF/10] 00:00:31, metric 1
+81.3.3.3/32        *[OSPF/10] 12:53:13, metric 1
                     >  to 81.3.5.3 via eth2
-81.3.5.0/24        *[Direct/0] 00:01:26
+81.3.5.0/24        *[Direct/0] 12:54:08
                     >  via eth2
-81.3.5.5/32        *[Local/0] 00:01:26
+81.3.5.5/32        *[Local/0] 12:54:08
                        Local via eth2
-81.4.4.4/32        *[Direct/0] 00:01:26
+81.4.4.4/32        *[Direct/0] 12:54:08
                     >  via lo.0
-224.0.0.2/32       *[LDP/9] 00:01:26, metric 1
+224.0.0.2/32       *[LDP/9] 12:54:08, metric 1
                        MultiRecv
-224.0.0.5/32       *[OSPF/10] 00:01:26, metric 1
+224.0.0.5/32       *[OSPF/10] 12:54:08, metric 1
                        MultiRecv
 
 inet.3: 3 destinations, 3 routes (3 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
-81.1.1.1/32        *[LDP/9] 00:00:35, metric 1
+81.1.1.1/32        *[LDP/9] 12:53:17, metric 1
                     >  to 81.1.5.1 via eth0
-81.2.2.2/32        *[LDP/9] 00:00:25, metric 1
+81.2.2.2/32        *[LDP/9] 12:53:07, metric 1
                     >  to 81.2.5.2 via eth1
-81.3.3.3/32        *[LDP/9] 00:00:30, metric 1
+81.3.3.3/32        *[LDP/9] 12:53:12, metric 1
                     >  to 81.3.5.3 via eth2
 
 mpls.0: 10 destinations, 10 routes (10 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
-0                  *[MPLS/0] 00:01:26, metric 1
+0                  *[MPLS/0] 12:54:08, metric 1
                        Receive
-1                  *[MPLS/0] 00:01:26, metric 1
+1                  *[MPLS/0] 12:54:08, metric 1
                        Receive
-2                  *[MPLS/0] 00:01:26, metric 1
+2                  *[MPLS/0] 12:54:08, metric 1
                        Receive
-13                 *[MPLS/0] 00:01:26, metric 1
+13                 *[MPLS/0] 12:54:08, metric 1
                        Receive
-16                 *[LDP/9] 00:00:35, metric 1
+16                 *[LDP/9] 12:53:17, metric 1
                     >  to 81.1.5.1 via eth0, Pop      
-16(S=0)            *[LDP/9] 00:00:35, metric 1
+16(S=0)            *[LDP/9] 12:53:17, metric 1
                     >  to 81.1.5.1 via eth0, Pop      
-17                 *[LDP/9] 00:00:30, metric 1
+17                 *[LDP/9] 12:53:12, metric 1
                     >  to 81.3.5.3 via eth2, Pop      
-17(S=0)            *[LDP/9] 00:00:30, metric 1
+17(S=0)            *[LDP/9] 12:53:12, metric 1
                     >  to 81.3.5.3 via eth2, Pop      
-18                 *[LDP/9] 00:00:25, metric 1
+18                 *[LDP/9] 12:53:07, metric 1
                     >  to 81.2.5.2 via eth1, Pop      
-18(S=0)            *[LDP/9] 00:00:25, metric 1
+18(S=0)            *[LDP/9] 12:53:07, metric 1
                     >  to 81.2.5.2 via eth1, Pop      
 
 bgp.l3vpn.0: 8 destinations, 8 routes (8 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
 81.1.1.1:2:99.60.0.0/24                
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
+                   *[BGP/170] 12:53:12, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0, Push 18
 81.1.1.1:2:99.60.0.1/32                
-                   *[BGP/170] 00:00:18, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:56, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0, Push 18
 81.1.1.1:2:99.60.1.0/24                
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
----(more)---                                                              AS path: I, validation-state: unverified
+                   *[BGP/170] 12:53:12, localpref 100, from 81.1.1.1
+                      AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0, Push 18
 81.1.1.1:2:99.60.1.1/32                
-                   *[BGP/170] 00:00:18, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:51, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0, Push 18
 81.2.2.2:2:99.60.0.0/24                
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 12:53:04, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1, Push 18
 81.2.2.2:2:99.60.1.0/24                
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 12:53:04, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1, Push 18
 81.3.3.3:2:99.60.0.0/24                
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 12:53:12, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2, Push 18
 81.3.3.3:2:99.60.1.0/24                
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 12:53:12, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2, Push 18
 
 inet6.0: 14 destinations, 18 routes (14 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
-::/96              *[Direct/0] 00:01:26
+::/96              *[Direct/0] 12:54:08
                     >  via sit0
-                    [Direct/0] 00:01:26
+                    [Direct/0] 12:54:08
                     >  via sit0
-                    [Direct/0] 00:01:26
+                    [Direct/0] 12:54:08
                     >  via sit0
-                    [Direct/0] 00:01:26
+                    [Direct/0] 12:54:08
                     >  via sit0
-                    [Direct/0] 00:01:26
+                    [Direct/0] 12:54:08
                     >  via sit0
-::81.1.5.5/128     *[Local/0] 00:01:26
+::81.1.5.5/128     *[Local/0] 12:54:08
                        Local via sit0
-::81.2.5.5/128     *[Local/0] 00:01:26
+::81.2.5.5/128     *[Local/0] 12:54:08
                        Local via sit0
-::81.3.5.5/128     *[Local/0] 00:01:26
+::81.3.5.5/128     *[Local/0] 12:54:08
                        Local via sit0
-::81.4.4.4/128     *[Local/0] 00:01:26
+::81.4.4.4/128     *[Local/0] 12:54:08
                        Local via sit0
-::127.0.0.1/128    *[Local/0] 00:01:26
+::127.0.0.1/128    *[Local/0] 12:54:08
                        Local via sit0
-fe80::1/128        *[Direct/0] 00:01:26
+fe80::1/128        *[Direct/0] 12:54:08
                     >  via lo.0
 fe80::a84e:72ff:fe42:a73/128
-                   *[Local/0] 00:01:26
+                   *[Local/0] 12:54:08
                        Local via lsi
 fe80::b408:8cff:fe4c:5a63/128
-                   *[Local/0] 00:01:26
+                   *[Local/0] 12:54:08
                        Local via ip6tnl0
 fe80::c8c5:7bff:feb8:3f0c/128
-                   *[Local/0] 00:01:24
+                   *[Local/0] 12:54:06
                        Local via irb
 fe80::f80f:7bff:fe0e:f3ad/128
-                   *[Local/0] 00:01:26
+                   *[Local/0] 12:54:08
                        Local via eth1
 fe80::fc54:27ff:fe6a:7c7/128
-                   *[Local/0] 00:01:26
+                   *[Local/0] 12:54:08
                        Local via eth2
 fe80::fcc7:bbff:fe04:30ea/128
-                   *[Local/0] 00:01:26
+                   *[Local/0] 12:54:08
                        Local via eth0
-ff02::2/128        *[INET6/0] 00:01:26
+ff02::2/128        *[INET6/0] 12:54:08
                        MultiRecv
 
-bgp.l3vpn-inet6.0: 11 destinations, 11 routes (0 active, 0 holddown, 11 hidden)
+bgp.l3vpn-inet6.0: 14 destinations, 14 routes (0 active, 0 holddown, 14 hidden)
 
-bgp.evpn.0: 19 destinations, 19 routes (19 active, 0 holddown, 0 hidden)
+bgp.evpn.0: 22 destinations, 22 routes (22 active, 0 holddown, 0 hidden)
 + = Active Route, - = Last Active, * = Both
 
 2:81.1.1.1:1::2600::00:11:11:11:60:00/304 MAC/IP        
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
----(more 66%)---                                                              AS path: I, validation-state: unverified
+                   *[BGP/170] 00:04:56, localpref 100, from 81.1.1.1
+                      AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.1.1.1:1::2601::00:44:44:44:60:10/304 MAC/IP        
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:51, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.2.2.2:1::2600::00:22:22:22:60:00/304 MAC/IP        
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 00:04:56, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1
 2:81.2.2.2:1::2601::00:55:55:55:60:10/304 MAC/IP        
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 00:04:49, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1
 2:81.3.3.3:1::2600::00:33:33:33:60:00/304 MAC/IP        
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 00:04:53, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2
 2:81.3.3.3:1::2601::00:66:66:66:60:10/304 MAC/IP        
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 00:04:47, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2
 2:81.1.1.1:1::2600::00:11:11:11:60:00::99.60.0.1/304 MAC/IP        
-                   *[BGP/170] 00:00:18, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:56, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.1.1.1:1::2601::00:44:44:44:60:10::99.60.1.1/304 MAC/IP        
-                   *[BGP/170] 00:00:18, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:51, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.1.1.1:1::2600::00:11:11:11:60:00::1234::633c:1/304 MAC/IP        
-                   *[BGP/170] 00:00:07, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:56, localpref 100, from 81.1.1.1
+                      AS path: I, validation-state: unverified
+                    >  to 81.1.5.1 via eth0
+2:81.1.1.1:1::2600::00:11:11:11:60:00::fe80::211:11ff:fe11:6000/304 MAC/IP        
+                   *[BGP/170] 00:04:56, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.1.1.1:1::2601::00:44:44:44:60:10::1234::633c:101/304 MAC/IP        
-                   *[BGP/170] 00:00:07, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:51, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.1.1.1:1::2601::00:44:44:44:60:10::fe80::244:44ff:fe44:6010/304 MAC/IP        
-                   *[BGP/170] 00:00:02, localpref 100, from 81.1.1.1
+                   *[BGP/170] 00:04:51, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 2:81.2.2.2:1::2601::00:55:55:55:60:10::1234::633c:102/304 MAC/IP        
-                   *[BGP/170] 00:00:05, localpref 100, from 81.2.2.2
+                   *[BGP/170] 00:04:49, localpref 100, from 81.2.2.2
+                      AS path: I, validation-state: unverified
+                    >  to 81.2.5.2 via eth1
+2:81.2.2.2:1::2601::00:55:55:55:60:10::fe80::255:55ff:fe55:6010/304 MAC/IP        
+                   *[BGP/170] 00:04:49, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1
 2:81.3.3.3:1::2601::00:66:66:66:60:10::1234::633c:103/304 MAC/IP        
-                   *[BGP/170] 00:00:03, localpref 100, from 81.3.3.3
+                   *[BGP/170] 00:04:47, localpref 100, from 81.3.3.3
+                      AS path: I, validation-state: unverified
+                    >  to 81.3.5.3 via eth2
+2:81.3.3.3:1::2601::00:66:66:66:60:10::fe80::266:66ff:fe66:6010/304 MAC/IP        
+                   *[BGP/170] 00:04:47, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2
 3:81.1.1.1:1::2600::81.1.1.1/248 IM            
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
+                   *[BGP/170] 12:53:12, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 3:81.1.1.1:1::2601::81.1.1.1/248 IM            
-                   *[BGP/170] 00:00:30, localpref 100, from 81.1.1.1
+                   *[BGP/170] 12:53:12, localpref 100, from 81.1.1.1
                       AS path: I, validation-state: unverified
                     >  to 81.1.5.1 via eth0
 3:81.2.2.2:1::2600::81.2.2.2/248 IM            
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 12:53:04, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1
 3:81.2.2.2:1::2601::81.2.2.2/248 IM            
-                   *[BGP/170] 00:00:22, localpref 100, from 81.2.2.2
+                   *[BGP/170] 12:53:04, localpref 100, from 81.2.2.2
                       AS path: I, validation-state: unverified
                     >  to 81.2.5.2 via eth1
 3:81.3.3.3:1::2600::81.3.3.3/248 IM            
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 12:53:12, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2
 3:81.3.3.3:1::2601::81.3.3.3/248 IM            
-                   *[BGP/170] 00:00:30, localpref 100, from 81.3.3.3
+                   *[BGP/170] 12:53:12, localpref 100, from 81.3.3.3
                       AS path: I, validation-state: unverified
                     >  to 81.3.5.3 via eth2
 
-success in 96 seconds
+pe1: cli show evpn database
+Instance: evpn-vxlan
+VLAN  DomainId  MAC address        Active source                  Timestamp        IP address
+     2600       00:11:11:11:60:00  eth1.600                       Mar 17 10:36:19  99.60.0.1
+                                                                                   1234::633c:1
+                                                                                   fe80::211:11ff:fe11:6000
+     2600       00:22:22:22:60:00  81.2.2.2                       Mar 17 10:36:20
+     2600       00:33:33:33:60:00  81.3.3.3                       Mar 17 10:36:22
+     2601       00:44:44:44:60:10  eth2.601                       Mar 17 10:36:24  99.60.1.1
+                                                                                   1234::633c:101
+                                                                                   fe80::244:44ff:fe44:6010
+     2601       00:55:55:55:60:10  81.2.2.2                       Mar 17 10:36:26  1234::633c:102
+                                                                                   fe80::255:55ff:fe55:6010
+     2601       00:66:66:66:60:10  81.3.3.3                       Mar 17 10:36:28  1234::633c:103
+                                                                                   fe80::266:66ff:fe66:6010
+
+success in 1 seconds

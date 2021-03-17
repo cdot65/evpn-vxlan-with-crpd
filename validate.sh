@@ -14,7 +14,7 @@ echo ""
 
 for destip in 99.60.0.2 99.60.0.3 99.60.1.1 99.60.1.2 99.60.1.3; do
   while true; do
-    docker exec -ti ce1 ping -c 3 $destip && break
+    docker exec -ti ce1 ping -fc 3 $destip && break
     echo "$SECONDS: waiting to reach $destip ..."
     sleep 1
   done
@@ -25,7 +25,7 @@ echo ""
 
 for destip in 1234::99.60.0.2 1234::99.60.0.3 1234::99.60.1.1 1234::99.60.1.2 1234::99.60.1.3; do
   while true; do
-    docker exec -ti ce1 ping6 -c 3 $destip && break
+    docker exec ce1 ping6 -fc 3 $destip && break
     echo "$SECONDS: waiting to reach $destip ..."
     sleep 1
   done
@@ -34,16 +34,20 @@ done
 for pe in pe1 pe2 pe3; do
   echo ""
   echo $pe: cli show evpn instance extensive
-  docker exec -ti $pe cli show evpn instance extensive
+  docker exec $pe cli show evpn instance extensive
 done
 
 echo ""
 echo p1: cli show bgp summary
-docker exec -ti p1 cli show bgp summary
+docker exec p1 cli show bgp summary
 
 echo ""
 echo p1: cli show route
-docker exec -ti p1 cli show route
+docker exec p1 cli show route
+
+echo ""
+echo pe1: cli show evpn database
+docker exec pe1 cli show evpn database
 
 echo ""
 echo "success in $SECONDS seconds"
