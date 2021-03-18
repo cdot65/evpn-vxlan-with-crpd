@@ -4,7 +4,7 @@ TAG ?= 21.2I-20210304_dev_common.0.0857
 all: up
 
 build:
-	docker-compose build --no-cache --build-arg TAG=${TAG} 
+	docker-compose build --build-arg TAG=${TAG} 
 
 pktgen:
 	scripts/crpd_present.sh && make -C pktgen
